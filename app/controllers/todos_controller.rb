@@ -14,6 +14,12 @@ class TodosController < ApplicationController
         render json: {message: "successfully updated"}
     end
 
+    def destroy
+        todo = Todo.find_by(id: params[:id])
+        todo.destroy
+        render json: {message: "successfully deleted"}
+    end
+
     private
 
     def todo_params
